@@ -1,10 +1,10 @@
 #require 'pry-byebug'
 
-def substrings(word, dictionary)
+def substrings(sentence, dictionary)
   dictionary.reduce(Hash.new(0)) do |result, dictionary_word|
     #binding.pry
     #if dictionary_word.include?(word)
-    if word.include?(dictionary_word)
+    if sentence.upcase.include?(dictionary_word.upcase)
       result[dictionary_word] += 1
     end
     result
@@ -12,4 +12,4 @@ def substrings(word, dictionary)
 end
 
 dictionary = ["below","down","go","going","horn","how","howdy","it","i","low","own","part","partner","sit"]
-p substrings('going', dictionary)
+p substrings("Howdy partner, sit down! How's it going?", dictionary)
